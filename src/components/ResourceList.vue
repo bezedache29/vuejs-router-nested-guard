@@ -52,5 +52,7 @@ export default {
 </script>
 
 <style scoped>
-
+  ul {
+    width: 50%;
+  }
 </style>

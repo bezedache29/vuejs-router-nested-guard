@@ -2,18 +2,20 @@
   <div>
     <form @submit.prevent>
       <label>Title</label>
-      <input v-model.trim="title" type="text" name="title" @blur="checkTitle" />
+      <input class="input" v-model.trim="title" type="text" name="title" @blur="checkTitle" />
       <div v-if="titleError" class="error">Le titre doit être rempli</div>
       <label>Description</label>
-      <textarea v-model.trim="desc" name="desc" cols="30" rows="10" @blur="checkDesc"></textarea>
+      <textarea class="input" v-model.trim="desc" name="desc" cols="30" rows="10" @blur="checkDesc"></textarea>
       <div v-if="descError" class="error">La description doit être remplie</div>
       <label>Commentary</label>
-      <textarea v-model.trim="commentary" name="desc" cols="30" rows="10" @blur="checkCommentary"></textarea>
+      <textarea class="input" v-model.trim="commentary" name="desc" cols="30" rows="10" @blur="checkCommentary"></textarea>
       <div v-if="commentaryError" class="error">La commentary doit être remplie</div>
       <label>Link</label>
-      <input v-model.trim="link" type="text" @blur="checkLink"/>
+      <input class="input" v-model.trim="link" type="text" @blur="checkLink"/>
       <div v-if="linkError" class="error">Link est obligatoire</div>
-      <custom-button :inactive="hasError" content="Submit" @buttonClicked="submitForm"></custom-button>
+      <div class="button">
+        <custom-button :inactive="hasError" content="Submit" @buttonClicked="submitForm"></custom-button>
+      </div>
     </form>
     <error-modal @trigger-close-modal="closeModal" v-if="showModal"></error-modal>
   </div>
@@ -88,5 +90,15 @@ export default {
     display: flex;
     flex-direction: column;
     padding: 10px 200px;
+  }
+  .input {
+    margin-bottom: 20px;
+  }
+  .error {
+    color: red;
+    margin-top: -20px;
+  }
+  .button {
+    margin-top: 20px;
   }
 </style>

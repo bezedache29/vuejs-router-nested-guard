@@ -1,9 +1,9 @@
 <template>
   <div>
-    <router-link to="/">
+    <router-link to="/" class="btn">
       Show List
     </router-link>
-    <router-link to="/add">
+    <router-link to="/add" class="btn">
       Show Form
     </router-link>
   </div>
@@ -19,9 +19,19 @@ export default {
     list-style-type: none;
     border: 1px rgb(204, 204, 204) solid;
     border-radius: 15px;
-    margin-top: 10px;
     width: 50%;
     padding: 20px;
     display: flex;
+    margin: 10px auto 0 auto;
+  }
+  .btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    color: black;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background-color: red;
+    color: white;
   }
 </style>

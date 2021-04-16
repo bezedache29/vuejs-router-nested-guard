@@ -4,7 +4,7 @@
 
 Comme d'habitude, si vous avez le moindre doute on incompréhension, venez me voir ! Et même si vous repartez de ma base, n'oubliez pas de changer l'url api firebase par la votre
 
-- [ ]  Transformer tous les liens du routeur en active links
+- [x]  Transformer tous les liens du routeur en active links
 - [ ]  Passer tous les paramètres d'url utilisé en props pour permettre plus de flexibilité
 - [ ]  Faire en sorte que le détail d'une ressource se charge sur la même page, tout en conservant bien sûr le paramètre d'url ⇒ Nested Routes
 - [ ]  Bien gérer le cas de figure où on change d'affichage détaillé (utilisation de watcher pour mettre à jour le composant enfant)

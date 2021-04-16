@@ -28,11 +28,12 @@ export default {
     color: white;
     margin-right: 5px;
     cursor: pointer;
+    border-radius: 5px;
   }
 
   .inactive {
-    background-color: white;
-    color: blueviolet;
+    background-color: rgba(128, 128, 128, 0.493);
+    color: white;
     cursor: initial;
   }
 </style>

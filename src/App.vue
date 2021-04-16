@@ -34,6 +34,7 @@ export default {
   }
 
   .router-link-active {
-    color: red;
+    background-color: blueviolet;
+    color: white!important;
   }
 </style>

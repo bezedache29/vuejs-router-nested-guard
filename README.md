@@ -14,4 +14,4 @@ Comme d'habitude, si vous avez le moindre doute on incompréhension, venez me vo
 ### Bonus :
 
 - [ ]  Utiliser un guard pour qu'on n'est pas la possiblité d'afficher les détails des resources tant que l'on en a pas ajouter une soit-même (utilisation de provide et inject + guard) ⇒ Venez me voir si ce n'est pas clair
-- [ ]  Faire en sorte que sur le détail d'une resource, on puisse cliquer sur un bouton "edit" et que des inputs remplacent alors le texte, avec un sauvegarde des champs on enter ⇒ Sauvegarde vers l'api évidemment.
+- [x]  Faire en sorte que sur le détail d'une resource, on puisse cliquer sur un bouton "edit" et que des inputs remplacent alors le texte, avec un sauvegarde des champs on enter ⇒ Sauvegarde vers l'api évidemment.

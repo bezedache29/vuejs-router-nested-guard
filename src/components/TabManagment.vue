@@ -1,9 +1,9 @@
 <template>
   <div>
-    <router-link :to="{ name: 'list' }" class="btn">
+    <router-link :to="routeList" class="btn">
       Show List
     </router-link>
-    <router-link :to="{ name: 'form' }" class="btn">
+    <router-link :to="routeForm" class="btn">
       Show Form
     </router-link>
   </div>
@@ -11,6 +11,14 @@
 
 <script>
 export default {
+  computed: {
+    routeList() {
+      return { name: 'list' }
+    },
+    routeForm() {
+      return { name: 'form' }
+    }
+  }
 }
 </script>
 

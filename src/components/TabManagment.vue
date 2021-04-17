@@ -1,9 +1,9 @@
 <template>
   <div>
-    <router-link to="/details" class="btn">
+    <router-link :to="{ name: 'list' }" class="btn">
       Show List
     </router-link>
-    <router-link to="/add" class="btn">
+    <router-link :to="{ name: 'form' }" class="btn">
       Show Form
     </router-link>
   </div>

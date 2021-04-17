@@ -10,12 +10,12 @@ import ResourceDetails from './components/ResourceDetails.vue';
 const router = createRouter({
   routes: [
     { path: '/', component: ResourceHome },
-    { path: '/details', component: ResourceList, children: 
+    { path: '/details', component: ResourceList, name:'list', children: 
       [
         { path: ':id', component: ResourceDetails, props: true }
       ]
     },
-    { path: '/add', component: ResourceForm },
+    { path: '/add', component: ResourceForm, name: 'form' },
   ],
   history: createWebHistory()
 });

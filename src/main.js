@@ -9,7 +9,7 @@ import ResourceDetails from './components/ResourceDetails.vue';
 
 const router = createRouter({
   routes: [
-    { path: '/', component: ResourceHome },
+    { path: '/', component: ResourceHome, name: 'home' },
     { path: '/details', component: ResourceList, name:'list', children: 
       [
         { path: ':id', component: ResourceDetails, props: true, name: 'details' }

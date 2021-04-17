@@ -24,8 +24,8 @@
 <script>
 import axios from 'axios';
 
-import ErrorModal from './ErrorModal.vue';
-import CustomButton from './UI/CustomButton.vue';
+import ErrorModal from './ErrorModal.vue'
+import CustomButton from './UI/CustomButton.vue'
 
 export default {
   components: { CustomButton, ErrorModal },
@@ -40,18 +40,34 @@ export default {
       descError: false,
       commentaryError: false,
       linkError: false,
+      isFormSubmit: false
+    }
+  },
+  beforeRouteLeave(_, _2, next) {
+    if (this.emptyForm || this.isFormSubmit) {
+      next()
+    } else {
+      const response = confirm("Avez vous valider le formulaire ?")
+      if (response) {
+        this.isFormSubmit = false
+        next()
+      }
     }
   },
   computed: {
     hasError () {
-      return this.title === '' || this.desc === '' || this.link === '' || this.commentary === '';
+      return this.title === '' || this.desc === '' || this.link === '' || this.commentary === ''
+    },
+    emptyForm() {
+      return this.title === '' && this.desc === '' && this.link === '' && this.commentary === ''
     }
   },
+  
   methods: {
     async submitForm() {
       // Check des valeurs 
       if(this.hasError) {
-        this.showModal = true;
+        this.showModal = true
       } else {
         const url = 'https://resources-vuejs-default-rtdb.europe-west1.firebasedatabase.app/resources.json';
         const item = { title: this.title, desc: this.desc, link: this.link, commentary: this.commentary };
@@ -59,7 +75,8 @@ export default {
         try{
           const response = await axios.post(url, item);
           if(response.statusText === 'OK') {
-            this.$router.push('/');
+            this.isFormSubmit = true
+            this.$router.push({ name: 'list' });
           }
         } catch (e) {
           console.log(e);
@@ -67,19 +84,19 @@ export default {
       }
     },
     closeModal() {
-      this.showModal = false;
+      this.showModal = false
     },
     checkTitle() {
-      this.titleError = this.title === '';
+      this.titleError = this.title === ''
     },
     checkDesc() {
-      this.descError = this.desc === '';
+      this.descError = this.desc === ''
     },
     checkLink() {
-      this.linkError = this.link === '';
+      this.linkError = this.link === ''
     },
     checkCommentary() {
-      this.commentaryError = this.commentary === '';
+      this.commentaryError = this.commentary === ''
     }
   }
 }

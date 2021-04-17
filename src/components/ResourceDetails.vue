@@ -1,4 +1,5 @@
 <template>
+  
   <div class="details">
     <h1>Détails de la ressource : {{ resource.title }}</h1>
     <h3>Description :</h3>
@@ -9,25 +10,38 @@
         <a target="_blank" :href="resource.link">{{ resource.link }}</a>
       </div>
   </div>
+
 </template>
 
 <script>
 
 import axios from 'axios';
 
+
 export default {
   name: 'resource-details',
 
+  props: {
+    id: String
+  },
+
+
   data() {
     return {
-      resource: {}
+      resource: {},
     }
   },
 
   mounted() {
     // console.log(this.$route)
-
     this.getCommentary(this.$route.params.id)
+  },
+
+  watch: {
+    id() {
+      // this.getCommentary(this.$route.params.id)
+      this.getCommentary(this.id)
+    }
   },
 
   methods: {
@@ -41,20 +55,24 @@ export default {
       } catch(error) {
         alert(error.message);
       }
-    }
+    },
+
+    
+
   }
 }
 </script>
 
 <style scoped>
   .details {
-    width: 50%;
+    width: 45%;
     margin: 0 auto;
     padding: 0;
     list-style-type: none;
     border: 1px rgb(204, 204, 204) solid;
     border-radius: 15px;
     margin-top: 10px;
+    margin-left: 2.5%;
   }
   h1 {
     text-align: center;
@@ -77,4 +95,5 @@ export default {
   p, h3 {
     padding-left: 20px;
   }
+  
 </style>

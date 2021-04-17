@@ -1,15 +1,18 @@
 <template>
-  <ul>
-    <resource-item
-      v-for="(item, id) in list" :key="id"
-      :title="item.title"
-      :desc="item.desc"
-      :link="item.link"
-      :commentary="item.commentary"
-      :id="id"
-      @delete-item="triggerDelete"
-    ></resource-item>
-  </ul>
+  <div class="container">
+    <ul>
+      <resource-item
+        v-for="(item, id) in list" :key="id"
+        :title="item.title"
+        :desc="item.desc"
+        :link="item.link"
+        :commentary="item.commentary"
+        :id="id"
+        @delete-item="triggerDelete"
+      ></resource-item>
+    </ul>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -52,9 +55,13 @@ export default {
 </script>
 
 <style scoped>
+  .container {
+    display: flex;
+  }
   ul {
-    width: 50%;
-    margin: 0 auto;
+    width: 45%;
+    margin: 0 2%;
     padding: 0;
+    margin-right: 2.5%;
   }
 </style>

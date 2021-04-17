@@ -57,6 +57,7 @@ export default {
 <style scoped>
   .container {
     display: flex;
+    margin-bottom: 20px;
   }
   ul {
     width: 45%;

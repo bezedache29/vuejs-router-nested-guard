@@ -73,6 +73,7 @@ export default {
     border-radius: 15px;
     margin-top: 10px;
     margin-left: 2.5%;
+    max-height: 600px;
   }
   h1 {
     text-align: center;

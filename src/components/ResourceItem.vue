@@ -1,6 +1,7 @@
 <template>
     <li>
-        <h2><router-link :to="`/details/${id}`" class="title-link">{{title}}</router-link></h2>
+        <!-- <h2><router-link :to="`/details/${id}`" class="title-link">{{title}}</router-link></h2> -->
+        <h2><router-link :to="{ name: 'details', params: { id: id } }" class="title-link">{{title}}</router-link></h2>
         <p>{{desc}}</p>
         <div class="buttons">
           <a target="_blank" :href="link">View Link</a>

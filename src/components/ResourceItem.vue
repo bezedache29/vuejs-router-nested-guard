@@ -22,7 +22,7 @@ export default {
   emits: ['deleteItem'],
   methods: {
     triggerDelete() {
-      this.$emit('deleteItem', this.id);
+      this.$emit('deleteItem', this.id)
     }
   },
 }

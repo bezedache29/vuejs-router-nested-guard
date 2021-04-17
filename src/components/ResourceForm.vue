@@ -69,14 +69,14 @@ export default {
       if(this.hasError) {
         this.showModal = true
       } else {
-        const url = 'https://resources-vuejs-default-rtdb.europe-west1.firebasedatabase.app/resources.json';
-        const item = { title: this.title, desc: this.desc, link: this.link, commentary: this.commentary };
+        const url = 'https://resources-vuejs-default-rtdb.europe-west1.firebasedatabase.app/resources.json'
+        const item = { title: this.title, desc: this.desc, link: this.link, commentary: this.commentary }
         
         try{
-          const response = await axios.post(url, item);
+          const response = await axios.post(url, item)
           if(response.statusText === 'OK') {
             this.isFormSubmit = true
-            this.$router.push({ name: 'list' });
+            this.$router.push({ name: 'list' })
           }
         } catch (e) {
           console.log(e);

@@ -9,7 +9,7 @@ Comme d'habitude, si vous avez le moindre doute on incompréhension, venez me vo
 - [x]  Faire en sorte que le détail d'une ressource se charge sur la même page, tout en conservant bien sûr le paramètre d'url ⇒ Nested Routes
 - [x]  Bien gérer le cas de figure où on change d'affichage détaillé (utilisation de watcher pour mettre à jour le composant enfant)
 - [x]  Changer les liens vers les routes pour utiliser la syntax objet et la propriété "name" pour naviguer à la place de "path"
-- [ ]  Utiliser un "guard" pour alerter l'utilisateur s'il quitte le formulaire avant de l'avoir envoyé, uniquement lorsque ce dernier est rempli
+- [x]  Utiliser un "guard" pour alerter l'utilisateur s'il quitte le formulaire avant de l'avoir envoyé, uniquement lorsque ce dernier est rempli
 
 ### Bonus :
 

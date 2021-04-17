@@ -12,7 +12,7 @@ const router = createRouter({
     { path: '/', component: ResourceHome },
     { path: '/details', component: ResourceList, name:'list', children: 
       [
-        { path: ':id', component: ResourceDetails, props: true }
+        { path: ':id', component: ResourceDetails, props: true, name: 'details' }
       ]
     },
     { path: '/add', component: ResourceForm, name: 'form' },

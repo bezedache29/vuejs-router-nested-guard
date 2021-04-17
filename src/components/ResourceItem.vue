@@ -50,7 +50,22 @@ export default {
     color: red;
     text-decoration: underline;
   }
+  p{
+    padding-left: 20px;
+  }
   .buttons {
     display: flex;
+    padding: 20px;
+    align-items: center;
+  }
+  .buttons a {
+    margin-right: 20px;
+  }
+  .buttons button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
   }
 </style>

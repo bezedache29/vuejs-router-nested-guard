@@ -54,5 +54,7 @@ export default {
 <style scoped>
   ul {
     width: 50%;
+    margin: 0 auto;
+    padding: 0;
   }
 </style>

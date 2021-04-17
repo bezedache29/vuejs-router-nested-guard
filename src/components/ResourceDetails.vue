@@ -5,12 +5,12 @@
     <h3>Description :</h3>
     <p v-if="!isEdit">{{ resource.desc }}</p>
     <div v-else class="group">
-      <textarea class="textarea" v-model.trim="desc" name="desc" cols="30" rows="10" @keyup.enter="changeDesc"></textarea>
+      <textarea class="textarea" v-model.trim="desc" name="desc" cols="30" rows="10" @blur="changeDesc"></textarea>
     </div>
     <h3>Commentaire :</h3>
     <p v-if="!isEdit">{{ resource.commentary }}</p>
     <div v-else class="group">
-      <textarea class="textarea" v-model.trim="commentary" name="desc" cols="30" rows="10" @keyup.enter="changeCommentary"></textarea>
+      <textarea class="textarea" v-model.trim="commentary" name="desc" cols="30" rows="10" @blur="changeCommentary"></textarea>
     </div>
     <div class="buttons" v-if="!isEdit">
       <a target="_blank" :href="resource.link">{{ resource.link }}</a>
@@ -20,8 +20,8 @@
       <input class="input" v-model.trim="link" type="text" @keyup.enter="changeLink" />
     </div>
     <div class="btn">
-      <button @click="edit" v-if="!isEdit">Edit</button>
-      <button @click="change" v-else class="btn-change">Change</button>
+      <button @click="edit" v-if="!isEdit" class="btn-edit">Edit</button>
+      <button @click="notEdit" v-else class="btn-change">Cancel</button>
     </div>
   </div>
 
@@ -39,7 +39,6 @@ export default {
     id: String
   },
 
-
   data() {
     return {
       resource: {},
@@ -51,7 +50,6 @@ export default {
   },
 
   mounted() {
-    // console.log(this.$route)
     this.getCommentary(this.$route.params.id)
   },
 
@@ -60,6 +58,12 @@ export default {
       // this.getCommentary(this.$route.params.id)
       this.getCommentary(this.id)
     }
+  },
+
+  // On ferme l'édition lorsqu'on change d'item ou lorsqu'on change de page
+  beforeRouteUpdate(_, _2, next) {
+    this.isEdit = false
+    next()
   },
 
   methods: {
@@ -82,10 +86,55 @@ export default {
       this.isEdit = true
     },
 
-    change() {
+    notEdit() {
+      this.getCommentary(this.id)
       this.isEdit = false
+    },
+
+    async changeDesc() {
+      const url = `https://resources-vuejs-default-rtdb.europe-west1.firebasedatabase.app/resources/${this.$route.params.id}.json`
+
+      try {
+        const response = await axios.patch(url, { desc: this.desc })
+
+        if(response.statusText === 'OK') {
+            this.$router.push(`/details/${this.$route.params.id}`)
+          }
+
+      } catch(error) {
+        alert(error.message)
+      }
+    },
+
+    async changeCommentary() {
+      const url = `https://resources-vuejs-default-rtdb.europe-west1.firebasedatabase.app/resources/${this.$route.params.id}.json`
+
+      try {
+        const response = await axios.patch(url, { commentary: this.commentary })
+
+        if(response.statusText === 'OK') {
+            this.$router.push(`/details/${this.$route.params.id}`)
+          }
+
+      } catch(error) {
+        alert(error.message)
+      }
+    },
+
+    async changeLink() {
+      const url = `https://resources-vuejs-default-rtdb.europe-west1.firebasedatabase.app/resources/${this.$route.params.id}.json`
+
+      try {
+        const response = await axios.patch(url, { link: this.link })
+
+        if(response.statusText === 'OK') {
+            this.$router.push(`/details/${this.$route.params.id}`)
+          }
+
+      } catch(error) {
+        alert(error.message)
+      }
     }
-    
 
   }
 }
@@ -101,7 +150,6 @@ export default {
     border-radius: 15px;
     margin-top: 10px;
     margin-left: 2.5%;
-    /* max-height: 600px; */
     height: 100%;
   }
   h1 {
@@ -146,6 +194,21 @@ export default {
     color: white;
   }
   .btn-change:hover {
+    background-color: red;
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+  }
+  .btn-edit {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: blueviolet;
+    cursor: pointer;
+    color: white;
+    border: none;
+  }
+  .btn-edit:hover {
     background-color: red;
   }
 </style>
